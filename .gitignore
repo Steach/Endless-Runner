@@ -74,4 +74,6 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+/[Aa]ssets/Agarkova_CG/Beard_man/Art/Mesh/Beard_man.fbx
+/[Aa]ssets/Agarkova_CG/Beard_man/Art/Mesh/Beard_man.fbx.meta
 # End of https://www.toptal.com/developers/gitignore/api/unity
