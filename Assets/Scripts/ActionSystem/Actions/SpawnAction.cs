@@ -10,12 +10,28 @@ public class SpawnAction : ActionBase
             Instantiate(_objectToSpawn, _position, Quaternion.identity, this.transform);
         }
 
-        if (data is SpawnManager.SpawnInformation _spawnOnformation)
+        if (data is SpawnManager.SpawnInformation _spawnInformation)
         {
-            var _spawnPosition = _spawnOnformation._position;
-            var _objectToSapwn = _spawnOnformation._objectToSpawn;
+            if (!_spawnInformation._spawnMoreThanOneObject)
+                SpawnOneObject(_spawnInformation._position[0], _spawnInformation._objectToSpawn);
 
-            Instantiate(_objectToSapwn, _spawnPosition, Quaternion.identity, this.transform);
+            if (_spawnInformation._spawnMoreThanOneObject)
+                SpawnManyObjects(_spawnInformation._transformPositions, _spawnInformation._objectToSpawn);
         }
+    }
+
+    private void SpawnOneObject(Vector3 position, GameObject[] gameObjects)
+    {
+        var obj = gameObjects[Random.Range(0, gameObjects.Length)];
+        Instantiate(obj, position, obj.transform.rotation, this.transform);
+    }
+
+    private void SpawnManyObjects(Transform[] positions, GameObject[] gameObjects)
+    {
+        for (int i = 0; i < positions.Length; i++)
+        {
+            var obj = gameObjects[Random.Range(0, gameObjects.Length)];
+            Instantiate(obj, positions[i].position, obj.transform.rotation, this.transform);
+        }   
     }
 }

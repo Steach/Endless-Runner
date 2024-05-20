@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
+    [SerializeField] private bool RotateParent;
     Transform[] weapons;
     float rotateSpeed = 100f;
 
-	void Start () {
+	void Start () 
+    {
         weapons = new Transform[transform.childCount];
         for (int i = 0; i < weapons.Length; i++)
         {
@@ -15,10 +17,18 @@ public class Rotator : MonoBehaviour {
         }
 	}
 	
-	void Update () {
-        for (int i = 0; i < weapons.Length; i++)
+	void Update () 
+    {
+        if (RotateParent)
         {
-            weapons[i].Rotate(Vector3.up * Time.deltaTime * rotateSpeed, Space.World);
+            this.gameObject.transform.Rotate(Vector3.up * Time.deltaTime * rotateSpeed, Space.World);
+        }
+        else
+        {
+            for (int i = 0; i < weapons.Length; i++)
+            {
+                weapons[i].Rotate(Vector3.up * Time.deltaTime * rotateSpeed, Space.World);
+            }
         }
 	}
 }

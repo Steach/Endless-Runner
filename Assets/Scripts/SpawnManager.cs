@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
@@ -8,12 +7,12 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private SpawnInformation _spawnInformation;
     [SerializeField] private float _stepSpawn;
 
-    private Vector3 _positionToSpawn;
+    [SerializeField] private Vector3 _positionToSpawn;
     
 
     private void Awake()
     {
-        _positionToSpawn = new Vector3(0, 0, _target.position.z);
+        _spawnInformation._position[0] = _positionToSpawn;
         _executor.Execute(_spawnInformation);
     }
 
@@ -24,10 +23,10 @@ public class SpawnManager : MonoBehaviour
 
     private void CheckTargetPosition()
     {
-        if (_positionToSpawn.z <= _target.position.z)
+        if (_positionToSpawn.z <= _target.position.z + 100)
         {
             _positionToSpawn.z += _stepSpawn;
-            _spawnInformation._position = _positionToSpawn;
+            _spawnInformation._position[0] = _positionToSpawn;
             _executor.Execute(_spawnInformation);
         }
     }
@@ -35,7 +34,9 @@ public class SpawnManager : MonoBehaviour
     [System.Serializable]
     public struct SpawnInformation
     {
-        public Vector3 _position;
-        public GameObject _objectToSpawn;
+        public Vector3[] _position;
+        public Transform[] _transformPositions;
+        public GameObject[] _objectToSpawn;
+        public bool _spawnMoreThanOneObject;
     }
 }
