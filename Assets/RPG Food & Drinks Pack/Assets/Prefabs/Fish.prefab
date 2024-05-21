@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 33966994455418444}
   - component: {fileID: 23481787520697432}
   - component: {fileID: 1057320370123489049}
+  - component: {fileID: 7611279743493694565}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -184,6 +185,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotateParent: 1
+--- !u!135 &7611279743493694565
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151177373984322}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.14281303
+  m_Center: {x: -0.0014762264, y: 0.00051339634, z: 0.01159631}
 --- !u!1 &1337305673661554
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,12 +3,15 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     [SerializeField] private Transform _target;
-    [SerializeField] private ExecutorBase _executor;
+    [Space]
+    [Header("Spawn Configuration")]
     [SerializeField] private SpawnInformation _spawnInformation;
     [SerializeField] private float _stepSpawn;
-
     [SerializeField] private Vector3 _positionToSpawn;
-    
+    [Space]
+    [Header("Action System")]
+    [SerializeField] private ExecutorBase _executor;
+
 
     private void Awake()
     {
