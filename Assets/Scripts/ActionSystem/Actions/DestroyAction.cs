@@ -13,5 +13,10 @@ public class DestroyAction : ActionBase
         {
             Destroy(collider.gameObject);
         }
+
+        if (data is Collision collision)
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

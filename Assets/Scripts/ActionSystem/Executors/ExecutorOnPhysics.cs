@@ -39,8 +39,10 @@ public class ExecutorOnPhysics : ExecutorBase
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("Collision");
         if (_state == State.Enter && _onCollision)
         {
+            Debug.Log("Collision Enter OnCollision");
             Execute(collision);
         }
     }

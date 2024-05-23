@@ -31,7 +31,9 @@ public class SpawnAction : ActionBase
         for (int i = 0; i < positions.Length; i++)
         {
             var obj = gameObjects[Random.Range(0, gameObjects.Length)];
-            Instantiate(obj, positions[i].position, obj.transform.rotation, this.transform);
+            var objRotation = obj.transform.rotation;
+
+            Instantiate(obj, positions[i].position, objRotation, this.transform);
         }   
     }
 }

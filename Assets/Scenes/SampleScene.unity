@@ -450,6 +450,8 @@ MonoBehaviour:
   - {fileID: 77956250}
   _condition: {fileID: 0}
   _state: 0
+  _whoBeDestroy: 1
+  _player: {fileID: 0}
   _onTrigger: 1
   _onCollision: 0
 --- !u!850595691 &245634001
@@ -564,14 +566,14 @@ MonoBehaviour:
   _target: {fileID: 201855007}
   _spawnInformation:
     _position:
-    - {x: -5, y: 0, z: 5}
+    - {x: 0, y: 0, z: 0}
     _transformPositions: []
     _objectToSpawn:
-    - {fileID: 2061135356906805979, guid: ccabee38930b213498c9d189f5a1a174, type: 3}
-    - {fileID: 7657008190753648794, guid: 142b635471574a14da646eb94b79df13, type: 3}
+    - {fileID: 3127819268092561304, guid: 909b5e862ddbeba4fbe1b079f94a64df, type: 3}
+    - {fileID: 2688947951802272266, guid: fe294a98a5998634fb1d6178c95aba32, type: 3}
     _spawnMoreThanOneObject: 0
-  _stepSpawn: 10
-  _positionToSpawn: {x: -5, y: 0, z: 5}
+  _stepSpawn: 30
+  _positionToSpawn: {x: 0, y: 0, z: 0}
   _executor: {fileID: 436354938}
 --- !u!4 &436354940
 Transform:
@@ -965,6 +967,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 201855007}
   _speed: 1.5
+  _bound: 3
 --- !u!1 &1111882238
 GameObject:
   m_ObjectHideFlags: 0

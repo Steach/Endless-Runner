@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
 
     private void CheckTargetPosition()
     {
-        if (_positionToSpawn.z <= _target.position.z + 100)
+        if (_target != null && _positionToSpawn.z <= _target.position.z + 100)
         {
             _positionToSpawn.z += _stepSpawn;
             _spawnInformation._position[0] = _positionToSpawn;
