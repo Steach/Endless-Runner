@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class EnegrySliderController : MonoBehaviour
 {
+    public Action EnergyIsNull;
+
     [System.Serializable]
     public struct SliderControllerData
     {
@@ -29,7 +32,8 @@ public class EnegrySliderController : MonoBehaviour
 
     private void Update()
     {
-        //_sliderEnergyData._energySlider.value -= _sliderEnergyData._lossEnegryPerSec;
         _executor.Execute(_sliderEnergyData);
-    }
+        if (_sliderEnergyData._energySlider.value <= 0)
+            EnergyIsNull?.Invoke();
+    } 
 }

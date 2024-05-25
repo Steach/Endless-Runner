@@ -6,6 +6,7 @@ public class FollowPlayer : MonoBehaviour
     [SerializeField] private Transform _target;
     [SerializeField] private float _speed;
     [SerializeField] private float _bound;
+    [SerializeField] private Vector3 _offset;
 
     private void Update()
     {
@@ -16,7 +17,9 @@ public class FollowPlayer : MonoBehaviour
     {
         if (_target != null)
         {
-            var targetPosition = new Vector3(_target.position.x, transform.position.y, _target.position.z);
+            var targetPosition = new Vector3(_target.position.x + _offset.x, 
+                transform.position.y + _offset.y, 
+                _target.position.z + _offset.z);
             transform.position = Vector3.Lerp(transform.position, targetPosition, _speed * Time.deltaTime);
         }
 

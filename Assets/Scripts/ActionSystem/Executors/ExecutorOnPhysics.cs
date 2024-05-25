@@ -4,7 +4,7 @@ using UnityEngine;
 public class ExecutorOnPhysics : ExecutorBase
 {
     public enum State { Enter, Exit, Stay }
-    public Action TriggerEvent;
+    public Action<string> TriggerEvent;
 
     [SerializeField] private State _state;
     [SerializeField] private bool _onTrigger;
@@ -14,7 +14,7 @@ public class ExecutorOnPhysics : ExecutorBase
     {
         if (_state == State.Enter && _onTrigger)
         {
-            TriggerEvent?.Invoke();
+            TriggerEvent?.Invoke(other.tag);
             Execute(other);
         }
     }
@@ -23,7 +23,7 @@ public class ExecutorOnPhysics : ExecutorBase
     {
         if (_state == State.Exit && _onTrigger)
         {
-            TriggerEvent?.Invoke();
+            TriggerEvent?.Invoke(other.tag);
             Execute(other);
         }
     }
@@ -32,17 +32,16 @@ public class ExecutorOnPhysics : ExecutorBase
     {
         if (_state == State.Stay && _onTrigger)
         {
-            TriggerEvent?.Invoke();
+            TriggerEvent?.Invoke(other.tag);
             Execute(other);
         }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Collision");
         if (_state == State.Enter && _onCollision)
         {
-            Debug.Log("Collision Enter OnCollision");
+            TriggerEvent?.Invoke(collision.gameObject.tag);
             Execute(collision);
         }
     }
@@ -51,6 +50,7 @@ public class ExecutorOnPhysics : ExecutorBase
     {
         if (_state == State.Exit && _onCollision)
         {
+            TriggerEvent?.Invoke(collision.gameObject.tag);
             Execute(collision);
         }
     }
@@ -59,6 +59,7 @@ public class ExecutorOnPhysics : ExecutorBase
     {
         if (_state == State.Stay && _onCollision)
         {
+            TriggerEvent?.Invoke(collision.gameObject.tag);
             Execute(collision);
         }
     }

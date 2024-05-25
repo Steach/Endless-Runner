@@ -9,12 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4520619713919029984}
-  - component: {fileID: -119053326566838298}
-  - component: {fileID: 424122393321387803}
   - component: {fileID: 3445621592034138579}
+  - component: {fileID: 6447278850001687042}
   m_Layer: 7
   m_Name: Obstacle 1
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,36 +34,6 @@ Transform:
   - {fileID: 5449702595689596562}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-119053326566838298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350344826158851339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54194986e779f9546b28a0df333e851b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actions:
-  - {fileID: 424122393321387803}
-  _condition: {fileID: 0}
-  _state: 0
-  _onTrigger: 0
-  _onCollision: 1
---- !u!114 &424122393321387803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350344826158851339}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d31dd2996f427d4e8919504ecda7c71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &3445621592034138579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -86,6 +55,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.7413709, y: 0.8969129, z: 0.6762512}
   m_Center: {x: 0.00091919303, y: 0.44845644, z: -0.0004146099}
+--- !u!114 &6447278850001687042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350344826158851339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54194986e779f9546b28a0df333e851b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actions: []
+  _condition: {fileID: 0}
+  _state: 0
+  _onTrigger: 0
+  _onCollision: 1
 --- !u!1001 &7170645904326552455
 PrefabInstance:
   m_ObjectHideFlags: 0

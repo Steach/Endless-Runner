@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,7 @@ public class Controller : MonoBehaviour
     [SerializeField] private float _runSpeed;
     [SerializeField] private float _horizontalMoveSpeed;
     [SerializeField] private bool running;
+    [SerializeField] private float _bounds;
     [Space]
     [Header("Target")]
     [SerializeField] private Rigidbody _targetRB;
@@ -36,6 +38,11 @@ public class Controller : MonoBehaviour
 
         var velocityBuInput = new Vector3(_movedirection.x, 0f, _movedirection.y) * _horizontalMoveSpeed * Time.fixedDeltaTime;
         _targetRB.velocity = new Vector3(velocityBuInput.x, _targetRB.velocity.y, Run() * Time.deltaTime);
+
+        if(transform.position.x <= -_bounds)
+            transform.position = new Vector3(-_bounds, transform.position.y, transform.position.z);
+        if(transform.position.x >= _bounds)
+            transform.position = new Vector3(_bounds, transform.position.y, transform.position.z);
     }
 
     private void Jump(InputAction.CallbackContext context)
