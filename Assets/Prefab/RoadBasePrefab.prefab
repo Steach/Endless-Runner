@@ -91,6 +91,9 @@ MonoBehaviour:
     _objectToSpawn:
     - {fileID: 2061135356906805979, guid: ccabee38930b213498c9d189f5a1a174, type: 3}
     - {fileID: 7657008190753648794, guid: 142b635471574a14da646eb94b79df13, type: 3}
+    - {fileID: 5348517872945125574, guid: 244a471f43d2698429d749f3905e610b, type: 3}
+    - {fileID: 850497821846652234, guid: d6a194d0fa7a05347b1ef1bf4438148f, type: 3}
+    - {fileID: 2857483028520910722, guid: 705d4e8266ca7c9449210a114bc39967, type: 3}
     _spawnMoreThanOneObject: 1
   _executor: {fileID: 7870887796068831718}
 --- !u!114 &7870887796068831718
