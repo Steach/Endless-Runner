@@ -6,6 +6,7 @@ public class ConditionTag : ConditionBase
     [SerializeField] private bool _player;
     [SerializeField] private bool _obstacle;
     [SerializeField] private bool _collectibleItem;
+    [SerializeField] private bool _hole;
     public override bool Check(object data = null)
     {
         
@@ -36,6 +37,8 @@ public class ConditionTag : ConditionBase
         if (_tag == UIManager.Tags.Obstacle.ToString() && _obstacle)
             return true;
         if (_tag == UIManager.Tags.Player.ToString() && _player)
+            return true;
+        if (_tag == UIManager.Tags.Hole.ToString() && _hole)
             return true;
 
         return false;

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public enum Tags { Player, Obstacle, CollectableItem }
+    public enum Tags { Player, Obstacle, CollectableItem, Hole }
 
     [SerializeField] private ExecutorOnPhysics _triggerEvent;
     [SerializeField] private ExecutorOnPhysics _colliderEvent;
@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Tags[] _tag;
     [SerializeField] private GameObject _gameOverPanel;
     [SerializeField] private EnegrySliderController _endEnergyEvent;
+    [SerializeField] private Controller _controller;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
         _endEnergyEvent.EnergyIsNull += GameOver; 
         _triggerEvent.TriggerEvent += CheckScore;
         _colliderEvent.TriggerEvent += CheckScore;
+        _controller.FallDownEvent += FallEvent;
     }
 
     private void CheckScore(string gameObjectTag)
@@ -33,7 +35,14 @@ public class UIManager : MonoBehaviour
         {
             _slider.value -= _lossEnergy;
         }
+
+        if (gameObjectTag == _tag[2].ToString())
+        {
+            _slider.value = 0;
+        }
     }
+
+    private void FallEvent() => _slider.value = 0;
 
     private void GameOver()
     { 

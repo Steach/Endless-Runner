@@ -429,6 +429,7 @@ MonoBehaviour:
   _player: 0
   _obstacle: 1
   _collectibleItem: 1
+  _hole: 0
 --- !u!1 &132384541
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +662,7 @@ GameObject:
   - component: {fileID: 201855009}
   - component: {fileID: 201855010}
   - component: {fileID: 201855011}
+  - component: {fileID: 201855012}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -706,6 +708,7 @@ MonoBehaviour:
   _mask:
     serializedVersion: 2
     m_Bits: 64
+  _controllerEnergy: {fileID: 793906857}
 --- !u!54 &201855009
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -774,6 +777,20 @@ MonoBehaviour:
   _state: 0
   _onTrigger: 1
   _onCollision: 1
+--- !u!114 &201855012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201855006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31db786a57b23474dafcb3f013b1a097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 2126957943}
+  _controller: {fileID: 201855008}
 --- !u!850595691 &245634001
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1089,6 +1106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 660680804}
+  - component: {fileID: 660680805}
   m_Layer: 0
   m_Name: Executer
   m_TagString: Untagged
@@ -1112,6 +1130,20 @@ Transform:
   - {fileID: 77956249}
   m_Father: {fileID: 201855007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &660680805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660680803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3b307932fa9a54e8c94b6cb57fa278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actions: []
+  _condition: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,9 +1747,10 @@ MonoBehaviour:
   _slider: {fileID: 1241387244}
   _pickedEnergy: 3
   _lossEnergy: 20
-  _tag: 0200000001000000
+  _tag: 020000000100000003000000
   _gameOverPanel: {fileID: 1319237903}
   _endEnergyEvent: {fileID: 793906857}
+  _controller: {fileID: 201855008}
 --- !u!1 &1241387242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2510,6 +2543,11 @@ PrefabInstance:
 --- !u!4 &2126957942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3422348691407119383, guid: 69389b9f6fcc7ea43939eb41234a3555, type: 3}
+  m_PrefabInstance: {fileID: 2126957941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2126957943 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8763596767702154861, guid: 69389b9f6fcc7ea43939eb41234a3555, type: 3}
   m_PrefabInstance: {fileID: 2126957941}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
