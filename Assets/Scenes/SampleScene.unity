@@ -704,6 +704,7 @@ MonoBehaviour:
   running: 1
   _bounds: 5
   _targetRB: {fileID: 201855009}
+  _visualTargetTransform: {fileID: 2126957942}
   _jumpForce: 5
   _mask:
     serializedVersion: 2
