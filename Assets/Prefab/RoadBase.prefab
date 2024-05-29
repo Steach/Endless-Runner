@@ -56,6 +56,8 @@ MonoBehaviour:
     - {fileID: 5330609532072249803, guid: 3ea13aac024cac24d8cd0225290cb824, type: 3}
     _spawnMoreThanOneObject: 1
   _executor: {fileID: 8554558769964528991}
+  ExecuteOnAwake: 1
+  ExecuteOnDestroy: 0
 --- !u!114 &8554558769964528991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -865,6 +867,8 @@ MonoBehaviour:
     - {fileID: 1151177373984322, guid: 1cc7cbbec1f220841a9ed6c3046dddfb, type: 3}
     _spawnMoreThanOneObject: 1
   _executor: {fileID: 2664144514181017093}
+  ExecuteOnAwake: 1
+  ExecuteOnDestroy: 0
 --- !u!114 &2664144514181017093
 MonoBehaviour:
   m_ObjectHideFlags: 0

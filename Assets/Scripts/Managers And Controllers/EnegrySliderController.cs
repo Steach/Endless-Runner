@@ -22,18 +22,27 @@ public class EnegrySliderController : MonoBehaviour
     [Space]
     [Header("Executor")]
     [SerializeField] private ExecutorBase _executor;
+    private bool _gameOver;
     
     
     private void Awake()
     {
+        _gameOver = false;
         _sliderEnergyData._energySlider.maxValue = _sliderEnergyData._maxEnergyValue;
         _sliderEnergyData._energySlider.value = _sliderEnergyData._maxEnergyValue;
     }
 
     private void Update()
     {
-        _executor.Execute(_sliderEnergyData);
-        if (_sliderEnergyData._energySlider.value <= 0)
-            EnergyIsNull?.Invoke();
-    } 
+        if (!_gameOver)
+        {
+            _executor.Execute(_sliderEnergyData);
+            if (_sliderEnergyData._energySlider.value <= 0)
+            {
+                _gameOver = true;
+                EnergyIsNull?.Invoke();
+            }   
+        }
+    }
 }
+

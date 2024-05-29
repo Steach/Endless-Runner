@@ -5,20 +5,24 @@ public class UIManager : MonoBehaviour
 {
     public enum Tags { Player, Obstacle, CollectableItem, Hole }
 
+    [Header("Events")]
     [SerializeField] private ExecutorOnPhysics _triggerEvent;
     [SerializeField] private ExecutorOnPhysics _colliderEvent;
+    [SerializeField] private EnegrySliderController _endEnergyEvent;
+    [SerializeField] private Controller _controller;
+
+    [Header("Slider Configuration")]
     [SerializeField] private Slider _slider;
     [SerializeField] private float _pickedEnergy;
     [SerializeField] private float _lossEnergy;
-    [SerializeField] private Tags[] _tag;
     [SerializeField] private GameObject _gameOverPanel;
-    [SerializeField] private EnegrySliderController _endEnergyEvent;
-    [SerializeField] private Controller _controller;
+    
+    
 
     private void Awake()
     {
         _gameOverPanel.SetActive(false);
-        _endEnergyEvent.EnergyIsNull += GameOver; 
+        _endEnergyEvent.EnergyIsNull += GameOver;
         _triggerEvent.TriggerEvent += CheckScore;
         _colliderEvent.TriggerEvent += CheckScore;
         _controller.FallDownEvent += FallEvent;
@@ -26,17 +30,17 @@ public class UIManager : MonoBehaviour
 
     private void CheckScore(string gameObjectTag)
     {
-        if (gameObjectTag == _tag[0].ToString())
+        if (gameObjectTag == (Tags.CollectableItem).ToString())
         {
             _slider.value += _pickedEnergy;
         }
 
-        if (gameObjectTag == _tag[1].ToString())
+        if (gameObjectTag == (Tags.Obstacle).ToString())
         {
             _slider.value -= _lossEnergy;
         }
 
-        if (gameObjectTag == _tag[2].ToString())
+        if (gameObjectTag == (Tags.Hole).ToString())
         {
             _slider.value = 0;
         }

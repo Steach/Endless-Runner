@@ -96,6 +96,8 @@ MonoBehaviour:
     - {fileID: 2857483028520910722, guid: 705d4e8266ca7c9449210a114bc39967, type: 3}
     _spawnMoreThanOneObject: 1
   _executor: {fileID: 7870887796068831718}
+  ExecuteOnAwake: 1
+  ExecuteOnDestroy: 0
 --- !u!114 &7870887796068831718
 MonoBehaviour:
   m_ObjectHideFlags: 0

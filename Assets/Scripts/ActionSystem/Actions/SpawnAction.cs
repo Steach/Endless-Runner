@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class SpawnAction : ActionBase
 {
+    [SerializeField] private bool _spawnWithotParent;
     public override void Execute(object data = null)
     {
         if (data is GameObject _objectToSpawn)
@@ -15,8 +16,11 @@ public class SpawnAction : ActionBase
             if (!_spawnInformation._spawnMoreThanOneObject)
                 SpawnOneObject(_spawnInformation._position[0], _spawnInformation._objectToSpawn);
 
-            if (_spawnInformation._spawnMoreThanOneObject)
+            if (_spawnInformation._spawnMoreThanOneObject && !_spawnWithotParent)
                 SpawnManyObjects(_spawnInformation._transformPositions, _spawnInformation._objectToSpawn);
+
+            if (_spawnInformation._spawnMoreThanOneObject && _spawnWithotParent)
+                SpawnManyObjectsWithotParent(_spawnInformation._transformPositions, _spawnInformation._objectToSpawn);
         }
     }
 
@@ -35,5 +39,16 @@ public class SpawnAction : ActionBase
 
             Instantiate(obj, positions[i].position, objRotation, this.transform);
         }   
+    }
+
+    private void SpawnManyObjectsWithotParent(Transform[] positions, GameObject[] gameObjects)
+    {
+        for (int i = 0; i < positions.Length; i++)
+        {
+            var obj = gameObjects[Random.Range(0, gameObjects.Length)];
+            var objRotation = obj.transform.rotation;
+
+            Instantiate(obj, positions[i].position, objRotation);
+        }
     }
 }

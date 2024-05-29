@@ -1,8 +1,10 @@
 using TMPro;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
 public class ConditionTag : ConditionBase
 {
+    [Header("Tags")]
     [SerializeField] private bool _player;
     [SerializeField] private bool _obstacle;
     [SerializeField] private bool _collectibleItem;
